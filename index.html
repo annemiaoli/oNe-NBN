@@ -1,12 +1,62 @@
-{% extends "_base.html" %}
+<!--
+The first page people will see when they visit your project. This is typically where most of the content lives, and is probably where you want to start editing.-->
 
-{% block content %}
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome to your new project!</h1>
-    <p>Replace this message with your own content in <code>{{ PROJECT_PATH }}/index.html</code>.</p>
-    <p>Learn more on the <a href="_example.html">example page</a>.</p>
-  </div>
-</div>
+
+{% extends "_base.html" %}
+<head>
+	{% block css %}
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+	<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
+	{% endblock %}
+	<title>oNe</title>
+</head>
+
+{% block content %} <!-- All the block tag does is to tell the template engine that a child template may override those portions of the template. -->
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<center><img src="oNe_logo_color_2.jpg"</center>
+			<center><p id="subhead">a <a href="northbynorthwestern.com">North by Northwestern</a> audio series </p></center>
+		</div>
+
+		<div id="row-fluid">
+			{% for story in data|reverse %}
+				<div class="element-item">
+					<div class="col-xs-7 col-sm-5 col-md-3"> <!-- Responsive -->
+						<img src="{{ story.img_url }}" alt="img-responsive" class="img-thumbnail">
+					</div>
+				
+					<div class="{{story.name}} infobox" > <!-- Consider using {{story.name}} as class -->
+						<br>
+						<p class="text">{{story.question}}</p>
+						<br>
+						<br>
+						<br>
+						<span class="soundcite" data-id="180745693" data-start="0" data-end="61158">{{story.name}}</span>
+					</div>
+				</div>
+						{% endfor %}
+				
+		</div>
+
+<!--
+		<div id="infobox">
+				<br>
+				<p class="text">What quality do you admire in others?</p>
+				<br>
+				<br>
+				<br>
+				<span class="soundcite" data-id="180745693" data-start="0" data-end="61158">Blake Kidd responds.</span>
+		</div>
+	</div>
+-->
+
+	<!--<script src = "jquery.min.js"></script>--> 
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src = "js/application.js"></script>
+</body>
+
 {% endblock content %}
 

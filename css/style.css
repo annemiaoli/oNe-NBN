@@ -1,0 +1,66 @@
+/*style everything here
+Overides Bootstrap*/
+
+/*.element-item{
+	height:255px;
+	width:341px;
+}
+*/
+
+#subhead{
+	font-family: "Roboto";
+	font-color:black;
+}
+
+.img-thumbnail{
+  width: 255px;
+  height: 341px;
+  margin: 10px;
+  position:relative;
+}
+
+
+.infobox{
+	height: 127px;
+	width: 245px;
+	top: 216px;
+	right: 265px;
+	background-color: white;
+	opacity: 0.75;
+	margin: 10px;
+	position: relative;
+}
+/*.infobox{
+	position:absolute;
+	height:127px;
+	width:245px;
+	top: 216px;
+	right: 255px;
+	background-color:white;
+	opacity:0.75;
+}
+*/
+.text{
+	position:absolute;
+	color:black;
+	font-family:"Roboto Slab";
+	font-weight:700;
+	left:15px;
+}
+
+.soundcite{
+	position:absolute;
+	color:black;
+	font-family:"Roboto Slab";
+	font-weight:700;
+	left:15px;
+}
+
+.jumbotron{
+	background-color:#FFFFFF;
+	
+}
+
+.container{
+	position: relative;
+}
