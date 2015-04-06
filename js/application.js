@@ -11,6 +11,10 @@ $(document).ready(function() {
 		var $this = $(this); // $(this) refers to $('.element-item')
 		var $infobox = $this.find('.infobox'); 	// use built-in jquery function FIND to find a child node with the class 'infobox' (goes down the DOM tree)
 		var $audioPlayer = $this.find('.audio-clip-player');
+		var $play = $this.find('.player-button.play');
+		var $pause = $this.find('.player-button.pause');
+
+		$pause.hide();
 
 		$infobox.slideToggle(); // if found, fade in that element with class 'infobox'
 
@@ -30,33 +34,35 @@ $(document).ready(function() {
 
 	 });
 
-
-	function audioEnded() {
-	}
-
-	function whilePlaying(){
-	}
-
-	function pauseAudio(){
-		var pauseaudio=soundManager.togglePause("url");
-	}
-
-	function onAudioLoad() {
-
-	}
+	function audioEnded() {}
+	function whilePlaying() {}
+	function pauseAudio() {}
+	function onAudioLoad() {}
 
 	$('.player-button.play').click(function(e) {
 		e.stopPropagation(); //stop play from bubbling 
-		infobox = $(e.target).parents('.infobox')[0];
-		id = $(infobox).attr('id');
+
+		var $infobox = $($(e.target).parents('.infobox')[0]);
+		var $play = $infobox.find('.player-button.play');
+		var $pause = $infobox.find('.player-button.pause');
+
+		var id = $infobox.attr('id');
 		soundManager.play(id);
+		$play.hide();
+		$pause.show();
 	});
 
 	$('.player-button.pause').click(function(e) {
 		e.stopPropagation();
-		infobox = $(e.target).parents('.infobox')[0];
-		id = $(infobox).attr('id');
+
+		var $infobox = $($(e.target).parents('.infobox')[0]);
+		var $play = $infobox.find('.player-button.play');
+		var $pause = $infobox.find('.player-button.pause');
+
+		var id = $infobox.attr('id');
 		soundManager.pause(id);
+		$pause.hide();
+		$play.show();
 	});
 
 
