@@ -3,18 +3,15 @@ The first page people will see when they visit your project. This is typically w
 
 
 {% extends "_base.html" %}
-<head>
-	{% block css %}
-	<link rel="stylesheet" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
-	<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
-	{% endblock %}
-	<title>oNe</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endblock %}
 
 {% block content %} <!-- All the block tag does is to tell the template engine that a child template may override those portions of the template. -->
-<body>
 	<div class="container">
 		<div class="jumbotron">
 			<center><img src="oNe_logo_color_2.jpg"</center>
@@ -24,39 +21,25 @@ The first page people will see when they visit your project. This is typically w
 		<div id="row-fluid">
 			{% for story in data|reverse %}
 				<div class="element-item">
-					<div class="col-xs-7 col-sm-5 col-md-3"> <!-- Responsive -->
+					<div class="col-xs-7 col-sm-5 col-md-3" "grid"> <!-- Responsive -->
 						<img src="{{ story.img_url }}" alt="img-responsive" class="img-thumbnail">
-					</div>
-				
-					<div class="{{story.name}} infobox" > <!-- Consider using {{story.name}} as class -->
-						<br>
-						<p class="text">{{story.question}}</p>
-						<br>
-						<br>
-						<br>
-						<span class="soundcite" data-id="180745693" data-start="0" data-end="61158">{{story.name}}</span>
+						<div class="infobox" id="{{ story.story_id }}">
+							<p class="text">{{ story.question }}</p>
+							<div class="audio-clip-player" data-url="{{ story.audio_url }}">
+								<div class="controls">
+									<a href="javascript:;" class="player-button play"><span class="button-icon"><i class="fa fa-play"></i></span></a>
+									<a href="javascript:;" class="player-button pause"><span class="button-icon"><i class="fa fa-pause"></i></span></a>
+								</div>	
+							</div>
+						</div>
 					</div>
 				</div>
-						{% endfor %}
-				
-		</div>
-
-<!--
-		<div id="infobox">
-				<br>
-				<p class="text">What quality do you admire in others?</p>
-				<br>
-				<br>
-				<br>
-				<span class="soundcite" data-id="180745693" data-start="0" data-end="61158">Blake Kidd responds.</span>
+			{% endfor %}
 		</div>
 	</div>
--->
-
-	<!--<script src = "jquery.min.js"></script>--> 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src = "js/application.js"></script>
-</body>
-
 {% endblock content %}
 
+{% block scripts %}
+<script src = "js/vendor/soundmanager2/soundmanager2.js"></script>
+<script src = "js/application.js"></script>
+{% endblock %}

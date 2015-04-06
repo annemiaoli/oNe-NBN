@@ -2,10 +2,36 @@
 Overides Bootstrap*/
 
 /*.element-item{
-	height:255px;
-	width:341px;
+	width:1000px;
 }
 */
+
+.container{
+	position: relative;
+}
+
+#row-fluid{
+	height: 100%;
+	width: 100%;
+	padding-bottom: 0;
+}
+
+.grid{
+	width: 255px;
+	height:341px;
+}
+
+.infobox{
+	height: 127px;
+	width: 245px;
+	bottom:150px;
+	left: 4.5px;
+	background-color: white;
+	opacity: 0.80;
+	left:29.5px;
+	bottom:14px;
+	position: absolute;
+}
 
 #subhead{
 	font-family: "Roboto";
@@ -19,33 +45,13 @@ Overides Bootstrap*/
   position:relative;
 }
 
-
-.infobox{
-	height: 127px;
-	width: 245px;
-	top: 216px;
-	right: 265px;
-	background-color: white;
-	opacity: 0.75;
-	margin: 10px;
-	position: relative;
-}
-/*.infobox{
-	position:absolute;
-	height:127px;
-	width:245px;
-	top: 216px;
-	right: 255px;
-	background-color:white;
-	opacity:0.75;
-}
-*/
 .text{
 	position:absolute;
 	color:black;
 	font-family:"Roboto Slab";
 	font-weight:700;
-	left:15px;
+	margin-left:15px;
+	margin-right:15px;
 }
 
 .soundcite{
@@ -53,14 +59,32 @@ Overides Bootstrap*/
 	color:black;
 	font-family:"Roboto Slab";
 	font-weight:700;
-	left:15px;
+	margin-left:15px;
+	margin-right:15px;
 }
 
 .jumbotron{
 	background-color:#FFFFFF;
-	
 }
 
-.container{
-	position: relative;
+.active{
+	display:none;
+}
+
+.audio-clip-player{
+	margin-left: 15px;
+	margin-right: 15px;
+	font-family: "Roboto Slab";
+	font-weight: 700;
+	padding: 0.5em;
+	padding-top: 0.125em;
+	text-align: center;
+}
+
+.player-button {
+	display: inline-block;
+}
+
+.controls .button-icon {
+	font-size: 2em;
 }
